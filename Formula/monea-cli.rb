@@ -1,26 +1,26 @@
 class MoneaCli < Formula
   desc "An unopinionated CLI for playing rollup legos."
   homepage "https://monealabs.xyz"
-  version "0.1.0-alpha.4"
+  version "0.1.0-alpha.5"
   if OS.mac?
     if Hardware::CPU.arm?
-      url "https://github.com/monea-labs/monea-cli/releases/download/v0.1.0-alpha.4/monea-cli-aarch64-apple-darwin.tar.gz"
-      sha256 "c2718a9914c7e70b40fa57ce2335e434f79dcd91187f8391173d4a4720cb83ce"
+      url "https://github.com/monea-labs/monea-cli/releases/download/v0.1.0-alpha.5/monea-cli-aarch64-apple-darwin.tar.gz"
+      sha256 "a3e329effcb9167d5703d9c9a8e93b936f2c85c1afbfe1598e54777bb246618d"
     end
     if Hardware::CPU.intel?
-      url "https://github.com/monea-labs/monea-cli/releases/download/v0.1.0-alpha.4/monea-cli-x86_64-apple-darwin.tar.gz"
-      sha256 "a45777d114dc28511ed2fdff28ac61058cab5df96d9c1d34d48b3aa2abdcb476"
+      url "https://github.com/monea-labs/monea-cli/releases/download/v0.1.0-alpha.5/monea-cli-x86_64-apple-darwin.tar.gz"
+      sha256 "837c718bcf3e56013201de60041bc2293c01307af3f615af63b152e18e7ee70d"
     end
   end
   if OS.linux?
     if Hardware::CPU.intel?
-      url "https://github.com/monea-labs/monea-cli/releases/download/v0.1.0-alpha.4/monea-cli-x86_64-unknown-linux-gnu.tar.gz"
-      sha256 "aae9bde612365db196a59919e881f1a30116a5ece7c7380bd001626a60046ea5"
+      url "https://github.com/monea-labs/monea-cli/releases/download/v0.1.0-alpha.5/monea-cli-x86_64-unknown-linux-gnu.tar.gz"
+      sha256 "e2537049d85a290901ddd69676adbf84a375e0fe6d03e881b0c4d169aec36ad5"
     end
   end
   license "MIT"
 
-  BINARY_ALIASES = {"aarch64-apple-darwin": {}, "x86_64-apple-darwin": {}, "x86_64-pc-windows-gnu": {}, "x86_64-unknown-linux-gnu": {}}
+  BINARY_ALIASES = {"aarch64-apple-darwin": {"monea-cli": ["monea"]}, "x86_64-apple-darwin": {"monea-cli": ["monea"]}, "x86_64-pc-windows-gnu": {"monea-cli.exe": ["monea.exe"]}, "x86_64-unknown-linux-gnu": {"monea-cli": ["monea"]}}
 
   def target_triple
     cpu = Hardware::CPU.arm? ? "aarch64" : "x86_64"
